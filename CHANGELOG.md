@@ -1,13 +1,89 @@
-## Changelog
-[Full Changelog](https://github.com/node-apn/node-apn/compare/v3.0.0...master)
+## [5.1.3](https://github.com/parse-community/node-apn/compare/5.1.2...5.1.3) (2022-03-27)
 
-3.0.0: [Full ChangeLog](https://github.com/node-apn/node-apn/compare/v2.2.0...3.0.0)
-* Support zero-valued (0) `expiry`[#649](https://github.com/node-apn/node-apn/pull/649).  Thanks to [Nathan Hamblen](https://github.com/n8han)
-* add support for apns-push-type [#656](https://github.com/node-apn/node-apn/pull/656).  Thanks to [Stefan Trauth](https://github.com/funkenstrahlen)
 
-2.2.0:
-* Proxy support (#163)
-* Updated dependencies
+### Bug Fixes
+
+* security upgrade node-forge from 1.2.1 to 1.3.0 ([#101](https://github.com/parse-community/node-apn/issues/101)) ([a713a2b](https://github.com/parse-community/node-apn/commit/a713a2b68663591de1c3eb69335dbd6cafcdf3e5))
+
+## [5.1.2](https://github.com/parse-community/node-apn/compare/5.1.1...5.1.2) (2022-03-27)
+
+
+### Bug Fixes
+
+* security bump minimist from 1.2.5 to 1.2.6 ([#107](https://github.com/parse-community/node-apn/issues/107)) ([b2b1358](https://github.com/parse-community/node-apn/commit/b2b13585122d7c41d5b42e9428517aa9704b767f))
+
+# [5.1.1](https://github.com/parse-community/node-apn/compare/5.1.0...5.1.1) (2022-03-27)
+
+# Bug Fixes
+- Various dependency upgrades to fix vulnerabilities
+
+# 5.1.0
+
+### Features
+- Add support for iOS 15 property interruption-level ([#83](https://github.com/parse-community/node-apn/pull/83))
+- Add support for target-content-id notification property ([#84](https://github.com/parse-community/node-apn/pull/84))
+
+5.0.0
+* Drop support for node versions prior to 12 - those node versions have bugs in the http2 library.
+* Support MultiProvider and MultiClient to use a round-robin client for HTTP2.
+
+4.1.1
+* FIX: add proxy and fix logger types
+* NEW: Added support for critical notifications
+
+4.1.0
+* NEW: Proxy support
+* FIX: Close client on unexpected frame error
+* NEW: Add a configurable info/error logger
+* FIX: Update endpoint address
+* FIX: Add support to zero valued expiry
+
+4.0.0
+* BREAKING: shutdown() function on client now destroy the client and future requests throw error
+* Add test cases to Client
+* Improve verbose messages
+* Add request timeout handler
+* Add a new config setting requestTimeout (defaults to 5000 milliseconds)
+* Change ResponseFailure.status typing to be number
+* Fix nits on typos in documentation
+* Also run tests in Node 12 and 14
+* Remove the unreferenced lib/protocol directory
+* Improve GO AWAY handler
+
+3.2.0
+* Update node-forge and pin packages
+* Add typings for the "voip" NotificationPushType
+* Typed Notification.pushType
+
+3.1.0
+* Fix: http2session.shutdown() is not a function
+* Update npm install command in README
+* Add support for handling http2 GOAWAY messages and set http2 ping interval
+
+3.0.6
+* Set npm access to public in package.json to override default of private for scoped packages
+
+3.0.5
+* Change Travis to use node 10 instead of node 9
+* Attempt changes to travis to get it to publish to npm
+
+3.0.4
+* No change, bumping version with travis enabled
+
+3.0.3
+* Create an npm installable package `@parse/node-apn`
+
+3.0.2-parse:
+* Fix 3.0.1-parse release
+
+3.0.1-parse:
+* Add support for apns-push-type key
+
+3.0.0:
+* Native Node.js HTTP/2 client
+* Requires Node.js 8.9.1 or later
+* Breaking changes:
+    * The `status` property of notification results has changed from `string` to `number`
 
 2.1.5:
 * Improve typescript type definitions (#536)
@@ -23,7 +99,7 @@
 2.1.3:
 * Add thread-id to notification payload (#484)
 * Workaround an issue where APNS would return an HTTP 500 and make the connection unusable (#449, #480)
-* Regularily renew JSON web token (#449, #480)
+* Regularly renew JSON web token (#449, #480)
 
 2.1.2:
 * Add TypeScript type definitions (#441, #465)
@@ -38,7 +114,7 @@
 * JSON Web Token support (#401)
 * Add `threadId` property for notifications
 * Fix a leak caused when an error is emitted from the endpoint manager
-    - Queued notifications would resolve as errored but would remain in the queue, leading them to be repeatedly rejected without termination and causing an error log from node
+    * Queued notifications would resolve as errored but would remain in the queue, leading them to be repeatedly rejected without termination and causing an error log from node
 
 2.0.0:
 
